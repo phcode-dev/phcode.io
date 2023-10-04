@@ -1,0 +1,24 @@
+.footer {
+  color: var(--text-color-light);
+  background: url('../../../../../../assets/images/borderline.png'), linear-gradient( #282727, #282727);
+  background-position: bottom;
+  background-repeat: no-repeat;
+
+  .footer-items {
+    span, a {
+      margin: 20px;
+      white-space: nowrap;
+    }
+
+    a {
+      color: var(--text-color-light);
+      &:hover {
+        color: var(--accent-color);
+      }
+    }
+
+    .copyright {
+      color: var(--text-color-gray);
+    }
+  }
+}

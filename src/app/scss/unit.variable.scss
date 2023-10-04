@@ -1,0 +1,83 @@
+:root {
+
+  // color palettes ****************
+  --background-color: #ffff;
+  --background-color-dark: #282727;
+  --background-color-card: rgb(201, 199, 199);
+  --primary-color: #11225E;
+  --primary-color-dark: #3e1175;
+  --accent-color: #FE9615;
+  --text-color: #121416d8;
+  --text-color-light: #ffffffef;
+  --border-color-light: #f0f0f0bb;
+  --link-color: #4A78BF;
+  --link-color-hover: #ca3fd7;
+  --head-color: #11225E;
+  --head-text: #11225E;
+  --button-color: #263238;
+  --button-text: #fff;
+  --text-color-gray: gray;
+  --color-success-light: rgb(198, 255, 198);
+  --color-warning-light: rgb(252, 253, 174);
+  --color-danger-light: rgb(253, 166, 166);
+  --color-success-dark: rgb(2, 148, 2);
+  --color-warning-dark: rgb(226, 230, 2);
+  --color-danger-dark: rgb(243, 0, 0);
+
+  // Typography *********************
+  --font-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: Georgia, serif;
+  --font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-montserrat: "Montserrat Regular";
+  --font-montserrat-light: "Montserrat Light";
+  --font-montserrat-medium: "Montserrat Medium";
+  --font-montserrat-semi-bold: "Montserrat SemiBold";
+  --font-montserrat-bold: "Montserrat Bold";
+  --font-montserrat-extra-bold: "Montserrat ExtraBold";
+  --font-caveat: "Caveat";
+  --default-font-size: 1rem;
+  --font-size-xxs: 0.625rem;
+  --font-size-xs: 0.75rem;
+  --font-size-s: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 2.25rem;
+  --font-size-xxxl: 3rem;
+  --font-size-xxxxl: 4.5rem;
+
+
+  // spacing units *******************
+  --space-unit: 16px;
+  --space-xxxs: calc(0.125 * var(--space-unit));
+  --space-xxs: calc(0.25 * var(--space-unit));
+  --space-xsx: calc(0.375 * var(--space-unit));
+  --space-xs: calc(0.5 * var(--space-unit));
+  --space-sm: calc(0.75 * var(--space-unit));
+  --space-md: calc(1 * var(--space-unit));
+  --space-lg: calc(1.25 * var(--space-unit));
+  --space-xl: calc(2 * var(--space-unit));
+  --space-xxl: calc(3.25 * var(--space-unit));
+  --space-xxxl: calc(5.25 * var(--space-unit));
+  --nav-height: 80px;
+  // card styles *************
+  --card-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  --card-min-height: 350px;
+  --card-background-hover: #0000009f;
+  --card-background-shimmer: #d5d5d5;
+}
+
+// This is for theming in case requirement comes up in the future
+html[data-theme='light'] {
+  --background-color: #fff;
+  --text-color: #121416d8;
+  --link-color: #543fd7;
+}
+
+html[data-theme='dark'] {
+  --background-color: #212a2e;
+  --text-color: #F7F8F8;
+  --link-color: #828fff;
+}
+
+

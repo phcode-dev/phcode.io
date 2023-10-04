@@ -1,0 +1,38 @@
+.body {
+  padding-top: var(--nav-height);
+  background-color: var(--background-color-dark);
+  color: var(--text-color-light);
+  min-height: 100vh;
+
+  .main-heading {
+    font-family: var(--font-montserrat-bold);
+    font-style: italic;
+    font-size: var(--font-size-xl);
+  }
+  .sub-heading {
+    font-family: var(--font-montserrat-bold);
+    font-size: var(--font-size-lg);
+  }
+
+  .control-freak {
+    font-style: italic;
+  }
+
+  .name {
+    font-family: var(--font-montserrat-bold);
+    font-style: italic;
+    font-size: var(--font-size-xl);
+
+    &.charly {
+      color: var(--accent-color);
+    }
+
+    &.arun {
+      color: var(--link-color);
+    }
+  }
+}
+
+.align-top {
+  align-items: flex-start;
+}

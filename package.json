@@ -1,0 +1,75 @@
+{
+  "name": "phcode-web-marketing",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "start:server": "node server/server.js",
+    "dev:api": "ng serve --prod=true",
+    "dev:local": "ng serve --prod=false --proxy-config proxy-local.conf.json",
+    "build": "ng build",
+    "build:prod": "ng build --prod --aot",
+    "test": "ng test --code-coverage --browsers=Chrome",
+    "test:watch": "ng test --watch=true",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "prettier": "prettier --write {src,local}/**/*.{js,json,ts,html,css,scss}",
+    "pre-commit": "npm run prettier && npm run lint --fix && npm run build:prod && git add ."
+  },
+  "private": true,
+  "author": {
+    "name": "Kiran Bose",
+    "email": "kiranbose@gmail.com"
+  },
+  "dependencies": {
+    "@angular/animations": "~9.1.4",
+    "@angular/common": "~9.1.4",
+    "@angular/compiler": "~9.1.4",
+    "@angular/core": "~9.1.4",
+    "@angular/forms": "~9.1.4",
+    "@angular/platform-browser": "~9.1.4",
+    "@angular/platform-browser-dynamic": "~9.1.4",
+    "@angular/router": "~9.1.4",
+    "apexcharts": "^3.33.0",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.4.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "ng-apexcharts": "^1.6.0",
+    "ngx-toastr": "^12.1.0",
+    "rxjs": "~6.5.4",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.10.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.901.4",
+    "@angular/cli": "~9.1.4",
+    "@angular/compiler-cli": "~9.1.4",
+    "@angular/language-service": "~9.1.4",
+    "@types/jasmine": "~3.5.0",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
+    "codelyzer": "^5.1.2",
+    "husky": "^4.2.3",
+    "jasmine-core": "~3.5.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~5.0.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage-istanbul-reporter": "~2.1.0",
+    "karma-jasmine": "~3.0.1",
+    "karma-jasmine-html-reporter": "^1.4.2",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "protractor": "~5.4.3",
+    "protractor-html-reporter-2": "^1.0.4",
+    "ts-node": "~8.3.0",
+    "tslint": "~6.1.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "~3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pre-commit"
+    }
+  }
+}

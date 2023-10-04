@@ -1,0 +1,289 @@
+.main {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(#000A2E 80%, white);
+  user-select: none;
+
+
+  .vtl {
+    position: absolute;
+    top: -10%;
+    left: -20px;
+  }
+
+  .vbr {
+    position: absolute;
+    bottom: 10%;
+    right: -20px;
+  }
+
+  .stars-left {
+    position: absolute;
+    left: 0px;
+    top: 10%;
+    opacity: 0.7;
+  }
+
+  .stars-right {
+    position: absolute;
+    right: 0px;
+    top: 5%;
+    opacity: 0.7;
+  }
+
+  .content-container {
+    color: var(--text-color-light);
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    font-family: var(--font-montserrat-bold);
+
+    .brand-logo {
+      height: 35vh;
+    }
+    .brand-text {
+      margin-top: -30px;
+      h1 {
+        font-size: var(--font-size-xxl);
+        margin-bottom: var(--space-lg);
+      }
+      span {
+        font-family: var(--font-montserrat);
+      }
+      button {
+        width: 200px;
+        height: 45px;
+      }
+    }
+  }
+
+  .cloud {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+  }
+
+}
+
+.sky {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotateZ(136deg);
+  top: -182px;
+  left: 472px;
+  z-index: 2;
+  opacity: 0.5;
+}
+.star {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 2px;
+  border-radius: 885px;
+  background: linear-gradient(-45deg,
+    #eef0f5, rgba(0, 0, 255, 0));
+
+  -webkit-filter: drop-shadow(0 0 6px #eef1f8);
+  filter: drop-shadow(0 0 6px #d7dff0);
+  -webkit-animation: tail 5000ms ease-in-out infinite,
+    shooting 5000ms ease-in-out infinite;
+  animation: tail 5000ms ease-in-out infinite,
+    shooting 5000ms ease-in-out infinite;
+}
+
+/* Here we add before and after effect to star */
+.star::before,
+.star::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    -45deg,
+    rgba(0, 0, 255, 0),
+    #eaeef8,
+    rgba(0, 0, 255, 0)
+  );
+  -webkit-transform: translateX(50%) rotateZ(45deg);
+  transform: translateX(50%) rotateZ(45deg);
+  border-radius: 100%;
+  -webkit-animation: shining 3000ms ease-in-out infinite;
+  animation: shining 3000ms ease-in-out infinite;
+}
+.star::after {
+  -webkit-transform: translateX(50%) rotateZ(-45deg);
+  transform: translateX(50%) rotateZ(-45deg);
+}
+
+/* Here we are adding location of each
+   nth-child, animations, delays, and
+   before and after effects to each
+   and every balls(stars) */
+.star:nth-child(1) {
+  top: calc(50% - -119px);
+  left: calc(50% - 43px);
+  // -webkit-animation-delay: 4000ms;
+  // animation-delay: 4000ms;
+}
+.star:nth-child(1)::before,
+.star:nth-child(1)::after {
+  -webkit-animation-delay: 12000ms;
+  animation-delay: 12000ms;
+}
+.star:nth-child(2) {
+  top: calc(50% - -100px);
+  left: calc(50% - 137px);
+  -webkit-animation-delay: 5000ms;
+  animation-delay: 5000ms;
+}
+.star:nth-child(2)::before,
+.star:nth-child(2)::after {
+  -webkit-animation-delay: 10000ms;
+  animation-delay: 10000ms;
+}
+.star:nth-child(3) {
+  top: calc(50% - -90px);
+  left: calc(50% - 222px);
+  -webkit-animation-delay: 7000ms;
+  animation-delay: 7000ms;
+}
+.star:nth-child(3)::before,
+.star:nth-child(3)::after {
+  -webkit-animation-delay: 7000ms;
+  animation-delay: 7000ms;
+}
+.star:nth-child(4) {
+  top: calc(50% - -129px);
+  left: calc(50% - 213px);
+  -webkit-animation-delay: 7000ms;
+  animation-delay: 7000ms;
+}
+.star:nth-child(4)::before,
+.star:nth-child(4)::after {
+  -webkit-animation-delay: 7000ms;
+  animation-delay: 7000ms;
+}
+.star:nth-child(5) {
+  top: calc(50% - 146px);
+  left: calc(50% - 112px);
+  -webkit-animation-delay: 3000ms;
+  animation-delay: 3000ms;
+}
+.star:nth-child(5)::before,
+.star:nth-child(5)::after {
+  -webkit-animation-delay: 3000ms;
+  animation-delay: 3000ms;
+}
+.star:nth-child(6) {
+  top: calc(50% - -108px);
+  left: calc(50% - 160px);
+  -webkit-animation-delay: 3000ms;
+  animation-delay: 3000ms;
+}
+.star:nth-child(6)::before,
+.star:nth-child(6)::after {
+  -webkit-animation-delay: 3000ms;
+  animation-delay: 3000ms;
+}
+.star:nth-child(7) {
+  top: calc(50% - 52px);
+  left: calc(50% - 72px);
+  -webkit-animation-delay: 7000ms;
+  animation-delay: 7000ms;
+}
+.star:nth-child(7)::before,
+.star:nth-child(7)::after {
+  -webkit-animation-delay: 7000ms;
+  animation-delay: 7000ms;
+}
+
+/* This code will help to generate
+effect in tail of star */
+@keyframes tail {
+  0% {
+    width: 0;
+  }
+  30% {
+    width: 100px;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+/* This code will generate shining
+effect in head of star */
+@keyframes shining {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 30px;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+/* Here we are adding webkit-animation
+to head of star for shining */
+@-webkit-keyframes shining {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 30px;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+/* Here we are adding webkit-animation
+to tail of star */
+@-webkit-keyframes tail {
+  0% {
+    width: 0;
+  }
+  30% {
+    width: 100px;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+/* Here we are adding webkit-animation
+for shooting effect */
+@-webkit-keyframes shooting {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(500px);
+    transform: translateX(500px);
+  }
+}
+
+/* Here we make shooting effect */
+@keyframes shooting {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(500px);
+    transform: translateX(500px);
+  }
+}
