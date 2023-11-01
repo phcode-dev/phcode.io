@@ -8,7 +8,7 @@
     "dev:api": "ng serve --prod=true",
     "dev:local": "ng serve --prod=false --proxy-config proxy-local.conf.json",
     "build": "ng build",
-    "build:prod": "ng build --prod --aot",
+    "build:prod": "ng build --prod --aot --base-href \"./\"",
     "test": "ng test --code-coverage --browsers=Chrome",
     "test:watch": "ng test --watch=true",
     "lint": "ng lint",
