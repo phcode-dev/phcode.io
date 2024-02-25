@@ -1,4 +1,5 @@
 <section class="main" #parent>
+
   <img class="vtl z1"  src="assets/images/vector-top-left.png" alt="topl">
   <img class="vbr z1" src="assets/images/vector-bottom-right.png" alt="bottoml">
   <img class="stars-left z2" pxMouseMove [parent]="parent" src="assets/images/stars-left.svg" alt="bottoml">
@@ -6,13 +7,51 @@
 
   <div class="container content-container d-flex flex-column justify-center align-center z8">
     <img pxMouseMove [parent]="parent" class="brand-logo" xMovement="3" yMovement="3" src="assets/images/phoenix-logo.svg" alt="logo">
-    <div class="brand-text text-center z2">
+    <div class="brand-text text-center z2 d-flex flex-column justify-center align-center">
       <h1>phoenix</h1>
       <span>Modern. Open-source  cloud based IDE
         <br>
         Runs anywhere</span>
         <br><br>
-        <button class="primary-button">Start Coding</button>
+
+        <div class="dropdown-container primary-button d-flex justify-center align-center">
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown" style="width: 100%;height: 100%">
+              <ng-container *ngIf="platform == 'Linux'">
+                <button type="button" class="btn" style="height: 100%" (click)="downloadFile()">{{DownloadBtnLabel}}</button>
+                <a #downloadLink hidden [href]="DownloadBtnUrl" download></a>
+              </ng-container>
+
+              <!-- For Linux systems -->
+              <ng-container *ngIf="platform !== 'Linux'">
+
+                <button id="copy" type="button" class="btn" aria-haspopup="true" (click)="copyCode()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-copy" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                  </svg>
+                </button>
+                <div class="input-group">
+                  <code #codeSnippet id="codeSnippet" class="form-control bg-light">wget -qO- https://updates.phcode.io/linux/installer.sh | bash</code>
+                  <!-- <div class="input-group-append">
+                    <button class="btn btn-lg" (click)="copyCode()" style="background-color:transparent;">
+                      <i class="fa fa-pencil"></i> Edit
+                   </button>
+                  </div> -->
+                </div>
+              </ng-container>
+
+              <button type="button" class="ddntoggle btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item disabled">Downloads</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" *ngFor="let url of donwloadUrlArr" href="{{url.value}}">{{url.label}}</a>
+              </div>
+
+            </div>
+        </div>
+
+
     </div>
   </div>
 
@@ -27,4 +66,6 @@
     <div class="star" id="star-3"></div>
     <div class="star" id="star-4"></div>
   </div>
+
 </section>
+
