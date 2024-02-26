@@ -1,0 +1,61 @@
+<div class="primary-button dropdown-container download-button d-flex justify-center align-center">
+  <div class="btn-group" role="group" aria-label="Button group with nested dropdown" style="width: 100%;height: 100%">
+    <ng-container *ngIf="platform !== 'linux' && !isLinux">
+      <button type="button" class="btn" style="height: 100%" (click)="downloadFile()">
+        <p style="font-size: 16px;font-weight: bold;margin-bottom: 0;">
+          <svg style="margin-right: 10px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+          </svg>
+          Download</p>
+        <span style="font-size: 14px; font-weight: bold;">
+          {{DownloadBtnLabel}}
+        </span>
+      </button>
+      <a #downloadLink hidden [href]="DownloadBtnUrl" download></a>
+    </ng-container>
+
+    <!-- For Linux systems -->
+    <ng-container *ngIf="platform === 'linux' || isLinux">
+
+      <button id="copy" type="button" class="btn" aria-haspopup="true" (click)="copyCode()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-copy" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+        </svg>
+      </button>
+      <div class="input-group">
+        <code #codeSnippet id="codeSnippet" class="form-control bg-light">wget -qO- https://updates.phcode.io/linux/installer.sh | bash</code>
+        <!-- <div class="input-group-append">
+          <button class="btn btn-lg" (click)="copyCode()" style="background-color:transparent;">
+            <i class="fa fa-pencil"></i> Edit
+         </button>
+        </div> -->
+      </div>
+    </ng-container>
+
+    <button type="button" class="ddntoggle btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item disabled">Downloads</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" *ngFor="let url of donwloadUrlArr" (click)="selectPlatform(url.key)" href="javascript:void(0)">{{url.label}}</a>
+      <div class="dropdown-divider"></div>
+      <div style="display: flex; justify-content: space-around;">
+        <div>
+          <a class="dropdown-link primary-link" href="https://github.com/phcode-dev/phoenix-desktop/releases" target="_blank">Other downloads</a>
+        </div>
+        <div>
+          <a class="dropdown-link primary-link" href="https://phcode.dev/" target="_blank">open on web</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<ng-container *ngIf="platform === 'linux' || isLinux">
+  <div class="linux-more">
+    <span class="text">Supported on Ubuntu 20+, Fedora 24+, Arch Linux and many more...</span>
+    <a class="primary-link-accent" href="https://updates.phcode.io/linux/installer.sh" target="_blank">View source</a>
+  </div>
+</ng-container>

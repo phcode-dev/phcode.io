@@ -64,10 +64,27 @@ body {
   outline: none;
   color: var(--text-color-light);
 
-  &:hover {
-    filter: brightness(1.2);
+  &:hover:not(.dropdown-menu) {
+    background: linear-gradient(90deg, #f5a33f 0%, #e41802 100%);
   }
 }
+
+.primary-link {
+  color: var(--link-color);
+
+  &:hover {
+    color: var(--link-color);
+    filter: brightness(1.5);
+  }
+}
+.primary-link-accent {
+  color: var(--accent-color);
+
+  &:hover {
+    filter: brightness(1.5);
+  }
+}
+
 
 .z1 {
   z-index: 1;

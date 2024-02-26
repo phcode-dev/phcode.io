@@ -3,6 +3,7 @@
   font-family: var(--font-montserrat-bold);
   color: var(--primary-color);
   font-size: $font-size;
+
 }
 
 
@@ -11,11 +12,12 @@ section {
   .heading-container {
     .heading {
       @include head;
-      font-style: italic;
     }
     .description {
       font-family: var(--font-montserrat);
       width: 50%;
+      line-height: 1.5;
+
     }
   }
 
@@ -27,7 +29,7 @@ section {
       @include head(var(--font-size-xl));
     }
     p {
-      line-height: 0.8;
+      line-height: 1.5;
     }
   }
 }

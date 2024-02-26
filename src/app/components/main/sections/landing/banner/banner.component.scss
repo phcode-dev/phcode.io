@@ -283,38 +283,3 @@ for shooting effect */
     transform: translateX(500px);
   }
 }
-
-.dropdown-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  height: 50px;
-  width: 100%;
-  position: relative;
-  .btn {
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    border: none;
-    color: white;
-  }
-  .ddntoggle {
-    width: 50px;
-  }
-}
-#codeSnippet {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  justify-content: center;
-  align-items: center;
-  user-select: text;
-  background-color: rgb(244, 226, 218)!important;
-}
-#copy {
-  background-color: rgb(244, 226, 218)!important;
-  width: 50px;
-}

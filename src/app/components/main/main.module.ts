@@ -12,10 +12,11 @@ import { FeaturesComponent } from './sections/landing/features/features.componen
 import { WorkspacesComponent } from './sections/landing/workspaces/workspaces.component';
 import { ServerComponent } from './sections/landing/server/server.component';
 import { FooterComponent } from './sections/landing/footer/footer.component';
+import { DownloadComponent } from './sections/landing/banner/download/download.component';
 
 
 @NgModule({
-  declarations: [MainComponent, LandingComponent, NavComponent, BannerComponent, MouseMoveDirective, MeetPhoenixComponent, FeaturesComponent, WorkspacesComponent, ServerComponent, FooterComponent],
+  declarations: [MainComponent, LandingComponent, NavComponent, DownloadComponent, BannerComponent, MouseMoveDirective, MeetPhoenixComponent, FeaturesComponent, WorkspacesComponent, ServerComponent, FooterComponent],
   imports: [
     CommonModule,
     MainRoutingModule
