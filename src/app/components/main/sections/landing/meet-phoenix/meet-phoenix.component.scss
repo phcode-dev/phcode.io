@@ -24,11 +24,18 @@ section {
     // .meet-img {
     //   margin-top: -100px;
     // }
+
     .heading {
       @include head(var(--font-size-xl));
     }
     p {
       line-height: 1.5;
     }
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .center-below-xs {
+    text-align: center;
   }
 }
