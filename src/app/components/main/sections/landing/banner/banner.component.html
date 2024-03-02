@@ -12,10 +12,10 @@
       <span>Code Creatively: Visual Editing Tailored for Developers</span>
       <br><br>
 
-      <px-download [downloadUrls]="downloadUrls" [donwloadUrlArr]="donwloadUrlArr"> </px-download>
+      <px-download [downloadUrls]="downloadUrls" [donwloadUrlArr]="donwloadUrlArr" [isMobile]="isMobile"> </px-download>
       <div>
         <a href="https://phcode.dev/" target="_blank">
-          <button type="button" class="transparent-button btn launch-btn">
+          <button type="button" class=" btn launch-btn" [ngClass]="isMobile ? 'primary-button' : 'transparent-button'">
             Launch Web Editor</button>
         </a>
       </div>

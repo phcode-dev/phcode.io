@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { DownloadLabels } from '../banner.component';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 export enum Platforms {
   mac_intel = 'mac_intel',
@@ -18,16 +19,32 @@ export type DownloadURLs = {
 @Component({
   selector: 'px-download',
   templateUrl: './download.component.html',
-  styleUrls: ['./download.component.scss']
+  styleUrls: ['./download.component.scss'],
+  animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [
+          style({opacity: 0}),
+          animate('100ms', style({opacity: 1}))
+        ]),
+        transition(':leave', [
+          style({opacity: 1}),
+          animate('100ms', style({opacity: 0}))
+        ])
+      ]
+    )
+  ],
 })
 export class DownloadComponent implements OnInit {
   @Input('downloadUrls') downloadUrls;
   @Input('donwloadUrlArr') donwloadUrlArr;
+  @Input('isMobile') isMobile;
   isLinux = false;
   loading = true;
   platform: string;
   DownloadBtnLabel = 'Download';
   DownloadBtnUrl = '';
+  copied = false;
 
   @ViewChild('downloadLink') downloadLinkRef!: ElementRef;
   @ViewChild('codeSnippet') codeSnippetRef!: ElementRef;
@@ -38,14 +55,15 @@ export class DownloadComponent implements OnInit {
     this.detectPlatform();
   }
 
+
   selectPlatform(platform) {
     this.platform = platform;
     this.setUrls(platform);
   }
 
   detectPlatform() {
-    const platform = window.navigator.platform.toLowerCase();
-    // const platform = Platforms.linux;
+    // const platform = window.navigator.platform.toLowerCase();
+    const platform = Platforms.linux;
     if (platform.includes("win")) {
       this.platform = Platforms.windows_x64;
     } else if (platform.includes("mac")) {
@@ -84,6 +102,10 @@ export class DownloadComponent implements OnInit {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(codeText).then(() => {
         console.log('Code copied to clipboard!');
+        this.copied = true;
+        setTimeout(() => {
+          this.copied = false;
+        }, 2000);
       }).catch(err => {
         console.error('Failed to copy code: ', err);
       });

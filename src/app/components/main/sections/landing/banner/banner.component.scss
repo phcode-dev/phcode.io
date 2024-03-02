@@ -42,7 +42,13 @@
     font-family: var(--font-montserrat-bold);
 
     .brand-logo {
-      height: 35vh;
+      height: 25vh;
+      margin-top: 100px;
+    }
+    @media all and (max-width: 690px) {
+      .brand-logo {
+        margin-top: 200px;
+      }
     }
     .brand-text {
       margin-top: -30px;

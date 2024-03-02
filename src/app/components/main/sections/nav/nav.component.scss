@@ -23,6 +23,7 @@ nav {
     }
 
   }
+
   .nav-link {
     margin: 0 20px;
 
@@ -45,4 +46,9 @@ nav {
   width: 100%;
   background-color:rgba(65, 63, 63, 0.594);
   transition: all .1s ease-in-out;
+}
+
+.navbar-collapse.show, .navbar-collapse.collapsing {
+  background-color:rgba(65, 63, 63, 0.816);
+  text-align: center;
 }

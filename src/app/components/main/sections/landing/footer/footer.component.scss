@@ -12,6 +12,9 @@
 
     a {
       color: var(--text-color-light);
+      @media all and (max-width: 690px) {
+        display: block;
+      }
       &:hover {
         color: var(--accent-color);
       }
