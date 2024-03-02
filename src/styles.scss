@@ -69,6 +69,19 @@ body {
   }
 }
 
+.transparent-button {
+  background-color:rgba(0,0,0,0.4);
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  color: var(--link-color);
+
+  &:hover:not(.dropdown-menu) {
+    background-color:rgba(0,0,0,0.8);
+    color: white;
+  }
+}
+
 .primary-link {
   color: var(--link-color);
 

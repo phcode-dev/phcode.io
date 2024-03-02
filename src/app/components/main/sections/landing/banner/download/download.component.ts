@@ -27,7 +27,7 @@ export class DownloadComponent implements OnInit {
   loading = true;
   platform: string;
   DownloadBtnLabel = 'Download';
-  DownloadBtnUrl = 'https://github.com/phcode-dev/phoenix-desktop/releases/download/dev-app-v3.4.2/Phoenix.Code.Experimental.Build_3.4.2_x64-setup.exe';
+  DownloadBtnUrl = '';
 
   @ViewChild('downloadLink') downloadLinkRef!: ElementRef;
   @ViewChild('codeSnippet') codeSnippetRef!: ElementRef;
@@ -61,8 +61,8 @@ export class DownloadComponent implements OnInit {
   setUrls(platform) {
     switch(platform) {
       case Platforms.unknown:
-        this.DownloadBtnLabel = 'All releases';
-        this.DownloadBtnUrl = 'https://github.com/phcode-dev/phoenix-desktop/releases';
+        this.DownloadBtnLabel = DownloadLabels[Platforms.windows_x64];
+        this.DownloadBtnUrl = this.downloadUrls[Platforms.windows_x64];
       default:
         this.DownloadBtnLabel = DownloadLabels[platform] || 'Download';
         this.DownloadBtnUrl = this.downloadUrls[platform];

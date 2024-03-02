@@ -14,6 +14,6 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.titleService.setTitle('Phoenix - Cloud IDE');
+    this.titleService.setTitle('Phoenix Code');
   }
 }

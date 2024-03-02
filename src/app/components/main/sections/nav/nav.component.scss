@@ -39,3 +39,10 @@ nav {
     height: 20px;
   }
 }
+
+.navFixed {
+  position: fixed;
+  width: 100%;
+  background-color:rgba(65, 63, 63, 0.594);
+  transition: all .1s ease-in-out;
+}
