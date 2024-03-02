@@ -21,9 +21,10 @@ section {
   }
 
   .content-1 {
-    // .meet-img {
-    //   margin-top: -100px;
-    // }
+    .meet-img {
+      max-width: 600px;
+      padding: 20px;
+    }
 
     .heading {
       @include head(var(--font-size-xl));
