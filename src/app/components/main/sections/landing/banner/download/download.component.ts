@@ -62,8 +62,8 @@ export class DownloadComponent implements OnInit {
   }
 
   detectPlatform() {
-    // const platform = window.navigator.platform.toLowerCase();
-    const platform = Platforms.linux;
+    const platform = window.navigator.platform.toLowerCase();
+    // const platform = Platforms.linux;
     if (platform.includes("win")) {
       this.platform = Platforms.windows_x64;
     } else if (platform.includes("mac")) {
