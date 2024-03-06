@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/services/ApiService';
+import { ApiService } from 'src/app/services/apiService';
 import { DownloadURLs, Platforms } from './download/download.component';
 
 
