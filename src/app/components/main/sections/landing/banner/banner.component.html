@@ -12,7 +12,7 @@
       <span>Code Creatively: Visual Editing Tailored for Developers</span>
       <br><br>
 
-      <px-download [downloadUrls]="downloadUrls" [donwloadUrlArr]="donwloadUrlArr" [isMobile]="isMobile"> </px-download>
+      <px-download *ngIf="downloadUrls" [downloadUrls]="downloadUrls" [donwloadUrlArr]="donwloadUrlArr" [isMobile]="isMobile"> </px-download>
       <div>
         <a href="https://phcode.dev/" target="_blank">
           <button type="button" class=" btn launch-btn" [ngClass]="isMobile ? 'primary-button' : 'transparent-button'">
