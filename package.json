@@ -8,11 +8,12 @@
     "dev:api": "ng serve --prod=true",
     "dev:local": "ng serve --prod=false --proxy-config proxy-local.conf.json",
     "build": "ng build",
-    "build:prod": "ng build --prod --output-path docs --base-href ./ && node generateCNAME.js",
+    "build:prod": "ng build --prod --output-path docs --base-href ./ && node generateCNAME.js && npm run copy-robots",
     "test": "ng test --code-coverage --browsers=Chrome",
     "test:watch": "ng test --watch=true",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "copy-robots": "echo 'Copying robots.txt' && cp robots.txt docs/robots.txt",
     "prettier": "prettier --write {src,local}/**/*.{js,json,ts,html,css,scss}",
     "pre-commit": "npm run prettier && npm run lint --fix && npm run build:prod && git add ."
   },

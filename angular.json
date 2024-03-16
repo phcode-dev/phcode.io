@@ -67,6 +67,17 @@
                 }
               ]
             }
+          },
+          "postbuild": {
+            "builder": "@angular-devkit/build-angular:execute-commands",
+            "options": {
+              "commands": [
+                {
+                  "command": "echo 'copying...' && cp",
+                  "args": ["robots.txt", "docs/robots.txt"]
+                }
+              ]
+            }
           }
         },
         "serve": {
