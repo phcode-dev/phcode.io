@@ -5,8 +5,8 @@
 }
 
 .copied {
-  color: green;
-  background-color: rgba(255, 255, 255, 0.546);
+  color: var(--color-success-dark);
+  background-color: rgba(255, 255, 255, 0.75);
   position: absolute;
   top: 50%;
   left: -110px;
