@@ -13,10 +13,24 @@ import { WorkspacesComponent } from './sections/landing/workspaces/workspaces.co
 import { ServerComponent } from './sections/landing/server/server.component';
 import { FooterComponent } from './sections/landing/footer/footer.component';
 import { DownloadComponent } from './sections/landing/banner/download/download.component';
+import { AlertComponent } from './sections/landing/banner/alert/alert.component';
 
 
 @NgModule({
-  declarations: [MainComponent, LandingComponent, NavComponent, DownloadComponent, BannerComponent, MouseMoveDirective, MeetPhoenixComponent, FeaturesComponent, WorkspacesComponent, ServerComponent, FooterComponent],
+  declarations: [
+    MainComponent,
+    LandingComponent,
+    NavComponent,
+    AlertComponent,
+    DownloadComponent,
+    BannerComponent,
+    MouseMoveDirective,
+    MeetPhoenixComponent,
+    FeaturesComponent,
+    WorkspacesComponent,
+    ServerComponent,
+    FooterComponent,
+  ],
   imports: [
     CommonModule,
     MainRoutingModule

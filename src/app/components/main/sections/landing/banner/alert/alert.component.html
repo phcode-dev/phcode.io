@@ -1,0 +1,5 @@
+<div [ngClass]="'alert alert-' + activeAlert.type + '-' + activeAlert.severity"  *ngIf="activeAlert">
+  <button class="close" (click)="closeAlert()" *ngIf="activeAlert.dismissable">&times;</button>
+  <h3 class="alert-title">{{activeAlert.titleHTML}}</h3>
+  <p class="alert-content">{{activeAlert.messageHTML}}</p>
+</div>
