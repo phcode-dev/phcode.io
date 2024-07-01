@@ -41,6 +41,10 @@ export class AlertComponent implements OnInit {
       let platform = this.getMobileOperatingSystem() || window.navigator.platform.toLowerCase();
       if(platform.includes('mac')) {
         platform = 'mac';
+      } else if(platform.includes('win')) {
+        platform = 'win';
+      } else if(platform.includes('linux')) {
+        platform = 'linux';
       }
       const platFormAlert: TUpdateMsgFormat = data[platform];
       if (platFormAlert?.messageHTML && platFormAlert?.titleHTML) {
