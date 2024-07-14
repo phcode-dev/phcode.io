@@ -8,9 +8,10 @@
 
 
 section {
-
+width: 90%;
 video {
-  height: 50svh;
+  max-height: 50svh;
+  width: 100%;
   position: relative;
   border-radius: 20px; /* Adjust the value as needed */
   overflow: hidden; /* Ensures content stays within rounded corners */
