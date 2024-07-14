@@ -22,7 +22,7 @@
     </div>
 
     <div class="col-md-6 col-sm-12 col-xs-12 mt-sm-4 mt-xs-4 text-sm-center text-xs-center text-lg-right text-xl-right text-md-right">
-      <video *ngIf="videoSrc" [src]="videoSrc" muted autoplay loop controls></video>
+      <video #videoElement *ngIf="videoSrc" [src]="videoSrc" muted autoplay loop controls></video>
     </div>
 
 
