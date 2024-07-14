@@ -46,10 +46,11 @@ export class FeaturesComponent implements OnInit {
   featuresFromAPI: any = null;
 
   ngOnInit(): void {
-    this.videoOverlayConfig = VIDEO_OVERLAY_CONFIG;
     this.alertService.fetchCriticalAlerts().subscribe((data) => {
-      if (data?.features) {
+      if (data?.features && Array.isArray(data.features) && data.features.length > 0) {
         this.videoOverlayConfig = data?.features;
+      } else {
+        this.videoOverlayConfig = VIDEO_OVERLAY_CONFIG;
       }
     });
   }
