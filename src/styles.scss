@@ -90,11 +90,10 @@ body {
 }
 
 .primary-link {
-  color: var(--link-color);
+  color: var(--text-color-light);
 
   &:hover {
-    color: var(--link-color);
-    filter: brightness(1.5);
+    color: var(--accent-color);
   }
 }
 .primary-link-accent {
@@ -139,8 +138,8 @@ body {
 }
 
 a {
-  color: var(--text-color-light);
+  color: var(--accent-color);
   &:hover {
-    color: var(--accent-color);
+    color: var(--link-color);
   }
 }

@@ -26,7 +26,6 @@ nav {
 
   .nav-link {
     margin: 0 20px;
-
     &.icon {
       margin: 0;
     }
@@ -51,4 +50,11 @@ nav {
 .navbar-collapse.show, .navbar-collapse.collapsing {
   background-color:rgba(65, 63, 63, 0.816);
   text-align: center;
+}
+
+a {
+  color: var(--text-color-light);
+  &:hover {
+      color: var(--accent-color);
+    }
 }
