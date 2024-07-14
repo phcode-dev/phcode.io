@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertService } from 'src/app/services/alertService';
-import { ApiService } from 'src/app/services/apiService';
 import { FeatureConfig } from '../../features/features.component';
 
 enum SeverityType {
