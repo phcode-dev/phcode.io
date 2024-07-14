@@ -82,6 +82,13 @@ body {
   }
 }
 
+.text-primary {
+  color: var(--primary-color)!important;
+}
+.text-accent {
+  color: var(--accent-color)!important;
+}
+
 .primary-link {
   color: var(--link-color);
 

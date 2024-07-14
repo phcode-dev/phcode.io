@@ -14,6 +14,7 @@ import { ServerComponent } from './sections/landing/server/server.component';
 import { FooterComponent } from './sections/landing/footer/footer.component';
 import { DownloadComponent } from './sections/landing/banner/download/download.component';
 import { AlertComponent } from './sections/landing/banner/alert/alert.component';
+import { VideoOverlayComponent } from './sections/landing/video-overlay/video-overlay.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { AlertComponent } from './sections/landing/banner/alert/alert.component'
     BannerComponent,
     MouseMoveDirective,
     MeetPhoenixComponent,
+    VideoOverlayComponent,
     FeaturesComponent,
     WorkspacesComponent,
     ServerComponent,

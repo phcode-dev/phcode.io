@@ -9,6 +9,12 @@
     </div>
   </div>
 
+<px-video-overlay *ngFor="let config of videoOverlayConfig"
+  [title]="config.title"
+  [titleIconSrc]="config.titleIconSrc"
+  [subtitle]="config.subtitle"
+  [videoSrc]="config.videoSrc"
+></px-video-overlay>
 
   <!-- <div class="row preview">
     <div class="col-md-6">

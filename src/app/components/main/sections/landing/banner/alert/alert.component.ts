@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertService } from 'src/app/services/alertService';
 import { ApiService } from 'src/app/services/apiService';
+import { FeatureConfig } from '../../features/features.component';
 
 enum SeverityType {
   Critical = 'critical',
@@ -19,7 +21,8 @@ export type TCriticalUpdates = {
   linux: TUpdateMsgFormat,
   win: TUpdateMsgFormat,
   android: TUpdateMsgFormat,
-  ios: TUpdateMsgFormat
+  ios: TUpdateMsgFormat,
+  features: FeatureConfig[],
 }
 
 @Component({
@@ -30,14 +33,15 @@ export type TCriticalUpdates = {
 export class AlertComponent implements OnInit {
   activeAlert: TUpdateMsgFormat | null = null
 
-  constructor(private apiService: ApiService) {}
+  constructor(private alertService: AlertService) {}
+
 
   ngOnInit() {
     this.getCriticalAlerts();
   }
 
   getCriticalAlerts() {
-    this.apiService.getCriticalAlerts().subscribe((data: TCriticalUpdates) => {
+    this.alertService.fetchCriticalAlerts().subscribe((data: TCriticalUpdates) => {
       let platform = this.getMobileOperatingSystem() || window.navigator.platform.toLowerCase();
       if(platform.includes('mac')) {
         platform = 'mac';
