@@ -143,3 +143,35 @@ a {
     color: var(--link-color);
   }
 }
+
+
+
+
+/* BREAKPOINTS */
+
+/* SM breakpoint */
+@media (max-width: 576px) {
+    /* CUSTOM WIDTHS */
+    .w-xs-100 { width: 100%!important; }
+    .w-xs-25 { width: 25%!important; }
+    .w-xs-50 { width: 50%!important; }
+    .w-xs-75 { width: 75%!important; }
+}
+
+/* MD breakpoint*/
+@media (min-width: 768px) {
+    /* CUSTOM WIDTHS */
+    .w-md-100 { width: 100%!important; }
+    .w-md-50 { width: 50%!important; }
+    .w-md-25 { width: 25%!important; }
+    .w-md-75 { width: 75%!important; }
+}
+
+/* LG breakpoint */
+@media (min-width: 992px) {
+    /* CUSTOM WIDTHS */
+    .w-lg-100 { width: 100%!important; }
+    .w-lg-50 { width: 50%!important; }
+    .w-lg-25 { width: 25%!important; }
+    .w-lg-75 { width: 75%!important; }
+}
