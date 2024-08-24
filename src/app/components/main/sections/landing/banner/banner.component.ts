@@ -23,6 +23,7 @@ export class BannerComponent implements OnInit {
   donwloadUrlArr: {label: string, value: string, key: string}[];
   loading = true;
   isMobile = false;
+  downloadCount;
 
   constructor(private apiService: ApiService) {}
 
@@ -49,7 +50,7 @@ export class BannerComponent implements OnInit {
 
 
     this.apiService.getDownloadCounts().subscribe((data: UrlResponse) => {
-      console.log(data);
+      this.downloadCount = data;
     });
   }
 
