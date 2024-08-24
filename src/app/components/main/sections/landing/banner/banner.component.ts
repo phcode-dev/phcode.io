@@ -6,6 +6,16 @@ import { DownloadURLs, Platforms } from './download/download.component';
 export type UrlResponse = {
   'phcode.io.DownloadURL': DownloadURLs
 }
+
+export type TotalDownloads = {
+  downloadProofLink: string;
+  installerDownloads: number;
+  timestamp: string;
+  totalDownloadRatePerMinute: number;
+  totalDownloads: number;
+  updateDownloads: number;
+}
+
 export const DownloadLabels = {
   windows_x64: "Windows x64 Installer",
   mac_m1: "Mac - Apple Silicon DMG",
@@ -24,6 +34,7 @@ export class BannerComponent implements OnInit {
   loading = true;
   isMobile = false;
   downloadCount;
+  downloadProofLink;
 
   constructor(private apiService: ApiService) {}
 
@@ -49,8 +60,9 @@ export class BannerComponent implements OnInit {
     this.isMobile = this.checkMobile();
 
 
-    this.apiService.getDownloadCounts().subscribe((data: UrlResponse) => {
-      this.downloadCount = data;
+    this.apiService.getDownloadCounts().subscribe((data: TotalDownloads) => {
+      this.downloadCount = data.totalDownloads.toLocaleString();
+      this.downloadProofLink = data.downloadProofLink;
     });
   }
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UrlResponse } from '../components/main/sections/landing/banner/banner.component';
+import { TotalDownloads, UrlResponse } from '../components/main/sections/landing/banner/banner.component';
 import { TCriticalUpdates } from '../components/main/sections/landing/banner/alert/alert.component';
 
 @Injectable({
@@ -10,7 +10,7 @@ import { TCriticalUpdates } from '../components/main/sections/landing/banner/ale
 export class ApiService {
 
   apiUrl = 'https://updates.phcode.io/install.json';
-  downloadCountUrl = 'https://public-stats.phcode.io/download_counts.json';
+  downloadCountUrl = 'https://public-stats.phcode.io/generated/download_counts.json';
   alertsUrl = 'https://updates.phcode.io/siteNotifications/en.json';
 
   constructor(private http: HttpClient) { }
@@ -19,8 +19,8 @@ export class ApiService {
     return this.http.get<UrlResponse>(`${this.apiUrl}`);
   }
 
-  getDownloadCounts(): Observable<UrlResponse> {
-    return this.http.get<UrlResponse>(`${this.downloadCountUrl}`);
+  getDownloadCounts(): Observable<TotalDownloads> {
+    return this.http.get<TotalDownloads>(`${this.downloadCountUrl}`);
   }
 
   getCriticalAlerts(): Observable<TCriticalUpdates> {

@@ -24,8 +24,8 @@
         <a class="primary-link" href="https://brackets.io/" target="_blank"><strong>brackets.io</strong></a>
         development team</span>
       <span style="font-size: small;" *ngIf="downloadCount">with
-        <span class="primary-link-accent"><strong>{{downloadCount}}</strong></span>
-        Downloads so far</span>
+        <a class="primary-link-accent" [href]="downloadProofLink" target="_blank"><strong>{{downloadCount}}</strong></a>
+        downloads and counting...</span>
     </div>
   </div>
 
