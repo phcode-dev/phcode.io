@@ -14,7 +14,7 @@
             {{DownloadBtnLabel}}
           </span>
         </button>
-        <a #downloadLink hidden [href]="DownloadBtnUrl" download></a>
+        <a #downloadLink hidden [href]="DownloadBtnUrl" download [target]="'_blank' ? platform === 'chrome_os' : ''"></a>
       </ng-container>
 
       <!-- For Linux systems -->

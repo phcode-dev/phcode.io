@@ -11,6 +11,7 @@ export const DownloadLabels = {
   mac_m1: "Mac - Apple Silicon DMG",
   mac_intel: "Mac - Intel DMG",
   linux: "Linux x64",
+  chrome_os: "Chrome OS App",
 }
 @Component({
   selector: 'px-banner',
@@ -45,6 +46,11 @@ export class BannerComponent implements OnInit {
       console.error('Failed to get URLs');
     });
     this.isMobile = this.checkMobile();
+
+
+    this.apiService.getDownloadCounts().subscribe((data: UrlResponse) => {
+      console.log(data);
+    });
   }
 
 

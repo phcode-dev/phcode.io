@@ -7,6 +7,7 @@ export enum Platforms {
   mac_m1 = 'mac_m1',
   windows_x64 = 'windows_x64',
   linux = 'linux',
+  chrome_os = 'chrome_os',
   unknown = 'unknown',
 }
 export type DownloadURLs = {
@@ -15,6 +16,7 @@ export type DownloadURLs = {
   [Platforms.windows_x64]: string;
   [Platforms.linux]?: string;
   [Platforms.unknown]?: string;
+  [Platforms.chrome_os]?: string;
 }
 @Component({
   selector: 'px-download',
@@ -63,8 +65,11 @@ export class DownloadComponent implements OnInit {
 
   detectPlatform() {
     const platform = window.navigator.platform.toLowerCase();
-    // const platform = Platforms.linux;
-    if (platform.includes("win")) {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+
+    if (userAgent.includes("cros")) {
+      this.platform = Platforms.chrome_os;
+    } else if (platform.includes("win")) {
       this.platform = Platforms.windows_x64;
     } else if (platform.includes("mac")) {
       this.platform = Platforms.mac_m1;
