@@ -90,7 +90,7 @@ body {
 }
 
 .primary-link {
-  color: var(--text-color-light);
+  color: var(--text-color-light); // this needs to be corrected
 
   &:hover {
     color: var(--accent-color);

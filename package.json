@@ -36,8 +36,10 @@
     "bootstrap": "^4.4.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "jquery": "^3.7.1",
     "ng-apexcharts": "^1.6.0",
     "ngx-toastr": "^12.1.0",
+    "popper.js": "^1.16.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
@@ -69,8 +71,7 @@
     "typescript": "~3.8.3"
   },
   "husky": {
-    "hooks": {
-    }
+    "hooks": {}
   },
   "engines": {
     "node": "16.13.2"
