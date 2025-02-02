@@ -73,7 +73,7 @@ export class DownloadComponent implements OnInit {
       this.platform = Platforms.windows_x64;
     } else if (platform.includes("mac")) {
       this.platform = Platforms.mac_m1;
-    } else if (platform.includes("linux")) {
+    } else if (platform.includes("linux") && !this.isMobile) {
       this.platform = Platforms.linux;
     } else {
       this.platform = Platforms.unknown;
