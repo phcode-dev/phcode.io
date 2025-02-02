@@ -1,4 +1,4 @@
-<div class="container-fluid w-100" *ngIf="!isMobile">
+<div class="container-fluid w-100">
   <p *ngIf="platform === 'linux' || isLinux" class="text-center text-muted instruction">Copy and paste into your Linux terminal to install</p>
   <div class="primary-button dropdown-container download-button d-flex justify-center align-center">
     <div class="btn-group" role="group" aria-label="Button group with nested dropdown" style="width: 100%;height: 100%">
@@ -38,7 +38,7 @@
       <button type="button" class="ddntoggle btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span class="sr-only">Toggle Dropdown</span>
       </button>
-      <div class="dropdown-menu">
+      <div class="dropdown-menu" [ngClass]="isMobile ? 'mobile-dropdown-menu': ''">
         <a class="dropdown-item disabled">Downloads</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" *ngFor="let url of donwloadUrlArr" (click)="selectPlatform(url.key)" href="javascript:void(0)">{{url.label}}</a>
