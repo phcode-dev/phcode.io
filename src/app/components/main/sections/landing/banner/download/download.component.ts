@@ -73,7 +73,7 @@ export class DownloadComponent implements OnInit {
       this.platform = Platforms.windows_x64;
     } else if (platform.includes("mac")) {
       this.platform = Platforms.mac_m1;
-    } else if (platform.includes("linux") && !this.isMobile) {
+    } else if (platform.includes("linux")) {
       this.platform = Platforms.linux;
     } else {
       this.platform = Platforms.unknown;
@@ -86,6 +86,7 @@ export class DownloadComponent implements OnInit {
       case Platforms.unknown:
         this.DownloadBtnLabel = DownloadLabels[Platforms.windows_x64];
         this.DownloadBtnUrl = this.downloadUrls[Platforms.windows_x64];
+        break;
       default:
         this.DownloadBtnLabel = DownloadLabels[platform] || 'Download';
         this.DownloadBtnUrl = this.downloadUrls[platform];
