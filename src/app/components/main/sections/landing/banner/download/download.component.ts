@@ -8,6 +8,7 @@ export enum Platforms {
   windows_x64 = 'windows_x64',
   linux = 'linux',
   chrome_os = 'chrome_os',
+  mobile = 'mobile',
   unknown = 'unknown',
 }
 export type DownloadURLs = {
@@ -67,22 +68,28 @@ export class DownloadComponent implements OnInit {
     const platform = window.navigator.platform.toLowerCase();
     const userAgent = window.navigator.userAgent.toLowerCase();
 
-    if (userAgent.includes("cros")) {
-      this.platform = Platforms.chrome_os;
-    } else if (platform.includes("win")) {
-      this.platform = Platforms.windows_x64;
-    } else if (platform.includes("mac")) {
-      this.platform = Platforms.mac_m1;
-    } else if (platform.includes("linux")) {
-      this.platform = Platforms.linux;
+    if (this.isMobile) {
+      this.platform = Platforms.mobile;
     } else {
-      this.platform = Platforms.unknown;
+      if (userAgent.includes("cros")) {
+        this.platform = Platforms.chrome_os;
+      } else if (platform.includes("win")) {
+        this.platform = Platforms.windows_x64;
+      } else if (platform.includes("mac")) {
+        this.platform = Platforms.mac_m1;
+      } else if (platform.includes("linux")) {
+        this.platform = Platforms.linux;
+      } else {
+        this.platform = Platforms.unknown;
+      }
     }
+
     this.setUrls(this.platform);
   }
 
   setUrls(platform) {
     switch(platform) {
+      case Platforms.mobile:
       case Platforms.unknown:
         this.DownloadBtnLabel = DownloadLabels[Platforms.windows_x64];
         this.DownloadBtnUrl = this.downloadUrls[Platforms.windows_x64];
