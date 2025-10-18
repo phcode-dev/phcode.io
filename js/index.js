@@ -413,36 +413,10 @@ function createVideoOverlay(config) {
 function loadVideoOverlays() {
     const container = document.getElementById('videoOverlaysContainer');
     if (!container) return;
-
-    // Try to fetch features from API
-    fetch('https://updates.phcode.io/siteNotifications/en.json')
-        .then(function(response) {
-            if (!response.ok) throw new Error('Network response was not ok');
-            return response.json();
-        })
-        .then(function(data) {
-            let features = VIDEO_OVERLAY_CONFIG;
-
-            // Use API features if available
-            if (data && data.features && Array.isArray(data.features) && data.features.length > 0) {
-                features = data.features;
-            }
-
-            // Create and append video overlays
-            features.forEach(function(config) {
-                const overlay = createVideoOverlay(config);
-                container.appendChild(overlay);
-            });
-        })
-        .catch(function(error) {
-            console.log('Using default features:', error);
-
-            // Use default features
-            VIDEO_OVERLAY_CONFIG.forEach(function(config) {
-                const overlay = createVideoOverlay(config);
-                container.appendChild(overlay);
-            });
-        });
+    VIDEO_OVERLAY_CONFIG.forEach(function(config) {
+      const overlay = createVideoOverlay(config);
+      container.appendChild(overlay);
+    });
 }
 
 // Set current year in footer
