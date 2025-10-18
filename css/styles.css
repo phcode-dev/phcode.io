@@ -701,8 +701,11 @@ nav.nav-static .navbar {
 
 .banner-section .brand-text span {
   font-family: var(--font-montserrat);
+}
+
+.banner-section .brand-description {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .banner-section .cloud {
