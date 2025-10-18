@@ -1473,7 +1473,7 @@ nav.nav-static .navbar {
 
 .footer-logo-section {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
   margin-bottom: 1rem;
 }
