@@ -254,20 +254,37 @@
             </div>
         </div>
 
-        <div class="container-fluid pb-5 preview">
-            <div class="row pb-5">
-                <div class="offset-md-1 col-md-3 d-flex-center">
-                    <img src="assets/images/extension.png" alt="Extensions">
-                </div>
-                <div class="col-md d-flex-center">
-                    <div class="container text-left text-sm-center text-xs-center px-3">
-                        <p class="heading container text-left w-75">Extension and Themes</p>
-                        <p class="container text-left w-75">
-                            Customize the editor's functionality and look & feel with thousands of available extensions and themes.
-                        </p>
-                        <p class="container text-left w-75">
-                            Want to automate a task? Create extensions easily that work on any platform, exactly as you need.
-                        </p>
+        <div class="extensions-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
+                        <div class="extensions-image-wrapper">
+                            <img src="assets/images/extension.png" alt="Extensions and Themes" class="extensions-image">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 offset-lg-1">
+                        <div class="extensions-content">
+                            <h2 class="extensions-heading">Extensions & Themes</h2>
+                            <p class="extensions-description">
+                                Customize the editor's functionality and look & feel with thousands of available extensions and themes.
+                            </p>
+                            <div class="extensions-features">
+                                <div class="extension-feature-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                        <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
+                                    </svg>
+                                    <span>Thousands of available extensions and themes</span>
+                                </div>
+                                <div class="extension-feature-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                        <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
+                                    </svg>
+                                    <span><div>Want to automate a task? Create extensions easily that work on any platform, exactly as you need.</div></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -283,24 +300,93 @@
     </section>
 
     <!-- Footer -->
-    <section class="footer p-4 container-fluid">
-        <div class="mt-5 px-2 footer-items row w-100 text-center text-md-left">
-            <div class="col-12 col-md-8 footer-links">
-                <a class="d-block d-md-inline-block mr-md-3 mb-3" href="about.html">About</a>
-                <a class="d-block d-md-inline-block mr-md-3 mb-3" target="_blank" href="privacy.html">Privacy Policy</a>
-                <a class="d-block d-md-inline-block mr-md-3 mb-3" target="_blank" href="terms-of-service.html">Terms of service</a>
+    <footer class="footer-new">
+        <div class="footer-gradient-border"></div>
+        <div class="container py-5">
+            <div class="row footer-main">
+                <!-- About Column -->
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <div class="footer-column">
+                        <div class="footer-logo-section">
+                            <img src="assets/images/phoenix-logo.svg" alt="Phoenix Code" class="footer-logo">
+                            <h3 class="footer-brand">Phoenix Code</h3>
+                        </div>
+                        <p class="footer-tagline">Code Creatively</p>
+                        <p class="footer-description">
+                            The text editor designed to make coding as simple and fun as playing a video game.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Resources Column -->
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Resources</h4>
+                        <ul class="footer-links">
+                            <li><a href="https://docs.phcode.dev/" target="_blank">Documentation</a></li>
+                            <li><a href="https://github.com/phcode-dev/phoenix-desktop/releases" target="_blank">Downloads</a></li>
+                            <li><a href="https://phcode.dev/" target="_blank">Web Editor</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Company Column -->
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Social Column -->
+                <div class="col-lg-3 col-md-12">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Connect With Us</h4>
+                        <div class="footer-social-icons">
+                            <a href="https://github.com/phcode-dev/phoenix" target="_blank" aria-label="GitHub" class="footer-social-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                                </svg>
+                            </a>
+                            <a href="https://twitter.com/phcodedev" target="_blank" aria-label="Twitter" class="footer-social-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                                </svg>
+                            </a>
+                            <a href="https://discord.com/invite/rBpTBPttca" target="_blank" aria-label="Discord" class="footer-social-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0 a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCNK2a8DKqPQQe3GlfTk-RHg" target="_blank" aria-label="YouTube" class="footer-social-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <p class="footer-made-with mt-4">
+                            Made with <span class="heart-icon">❤︎</span> and JavaScript in Phoenix Code
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end align-items-center mt-3 mt-md-0">
-                <span>Made with <span class="m-0 p-0" style="color: red;">❤︎</span> and Javascript in Phoenix Code</span>
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-12 text-center">
+                        <p class="footer-copyright">
+                            © <span id="currentYear">2025</span> core.ai
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="container-fluid align-middle text-center mt-4">
-            <span class="copyright">© <span id="currentYear">2024</span> copyright core.ai </span>
-        </div>
-        <br>
-    </section>
+    </footer>
 
     <!-- JavaScript -->
     <script type="module" src="js/navbar.js"></script>
