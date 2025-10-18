@@ -905,6 +905,13 @@ nav.nav-static .navbar {
 .download-button .dropdown-link {
   font-size: var(--font-size-xs);
   color: var(--link-color);
+  text-decoration: none;
+}
+
+.download-button .dropdown-link:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+  transform: translateX(3px);
 }
 
 .download-button .dropdown-menu {
@@ -1163,11 +1170,86 @@ nav.nav-static .navbar {
   line-height: 1.5;
 }
 
-#video-overlay video {
+.video-container {
+  position: relative;
   width: 100%;
   max-width: 600px;
+  margin: 0 auto;
+}
+
+.video-container .feature-video {
+  width: 100%;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: block;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 0 0 8px 8px;
+}
+
+.video-container:hover .video-controls {
+  opacity: 1;
+}
+
+.play-pause-btn,
+.fullscreen-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.play-pause-btn:hover,
+.fullscreen-btn:hover {
+  transform: scale(1.1);
+}
+
+.play-pause-btn svg,
+.fullscreen-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-filled {
+  height: 100%;
+  background: var(--accent-color);
+  width: 0%;
+  transition: width 0.1s linear;
+  border-radius: 3px;
 }
 
 #video-overlay .flash-img {
@@ -1225,6 +1307,32 @@ nav.nav-static .navbar {
   #video-overlay .description-light {
     font-size: var(--font-size-s);
     line-height: 1.4;
+  }
+
+  /* Show video controls by default on mobile */
+  .video-controls {
+    opacity: 1;
+  }
+
+  .video-controls {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .play-pause-btn,
+  .fullscreen-btn {
+    width: 28px;
+    height: 28px;
+  }
+
+  .play-pause-btn svg,
+  .fullscreen-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .progress-bar {
+    height: 5px;
   }
 }
 
