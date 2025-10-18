@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
-import { copyFileSync, existsSync } from 'fs';
+import { copyFileSync, existsSync, cpSync } from 'fs';
 
 export default defineConfig({
   root: '.',
@@ -24,10 +24,16 @@ export default defineConfig({
       },
     },
   },
-  publicDir: 'assets',
+  publicDir: false, // Disable automatic public dir copying
   plugins: [{
     name: 'copy-static-files',
     closeBundle() {
+      // Copy assets folder preserving directory structure
+      if (existsSync('assets')) {
+        cpSync('assets', 'docs/assets', { recursive: true });
+        console.log('✓ Copied assets/ to docs/assets/');
+      }
+
       // Copy CNAME and robots.txt to docs/
       const filesToCopy = ['CNAME', 'robots.txt'];
       filesToCopy.forEach(file => {
