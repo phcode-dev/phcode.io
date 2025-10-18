@@ -401,32 +401,7 @@ function createVideoOverlay(config) {
             </div>
 
             <div class="col-md-6 col-sm-12 col-xs-12 mt-sm-4 mt-xs-4 text-sm-center text-xs-center text-lg-right text-xl-right text-md-right">
-                ${config.videoSrc ? `
-                    <div class="video-container">
-                        <video class="feature-video" src="${config.videoSrc}" muted autoplay loop playsinline controlsList="nodownload noremoteplayback" disablePictureInPicture></video>
-                        <div class="video-controls">
-                            <button class="play-pause-btn" aria-label="Play/Pause">
-                                <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                                <svg class="pause-icon hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
-                                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
-                                </svg>
-                            </button>
-                            <div class="progress-bar">
-                                <div class="progress-filled"></div>
-                            </div>
-                            <button class="fullscreen-btn" aria-label="Fullscreen">
-                                <svg class="fullscreen-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
-                                    <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
-                                </svg>
-                                <svg class="exit-fullscreen-icon hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
-                                    <path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                ` : ''}
+                ${config.videoSrc ? `<video-player src="${config.videoSrc}"></video-player>` : ''}
             </div>
         </div>
     `;
@@ -434,156 +409,6 @@ function createVideoOverlay(config) {
     return section;
 }
 
-// Initialize custom video controls
-function initVideoControls(videoContainer) {
-    const video = videoContainer.querySelector('.feature-video');
-    const playPauseBtn = videoContainer.querySelector('.play-pause-btn');
-    const playIcon = videoContainer.querySelector('.play-icon');
-    const pauseIcon = videoContainer.querySelector('.pause-icon');
-    const progressBar = videoContainer.querySelector('.progress-bar');
-    const progressFilled = videoContainer.querySelector('.progress-filled');
-    const fullscreenBtn = videoContainer.querySelector('.fullscreen-btn');
-    const fullscreenIcon = videoContainer.querySelector('.fullscreen-icon');
-    const exitFullscreenIcon = videoContainer.querySelector('.exit-fullscreen-icon');
-
-    if (!video || !playPauseBtn) return;
-
-    // Function to toggle play/pause
-    function togglePlayPause() {
-        if (video.paused) {
-            video.play();
-            playIcon.classList.add('hidden');
-            pauseIcon.classList.remove('hidden');
-        } else {
-            video.pause();
-            playIcon.classList.remove('hidden');
-            pauseIcon.classList.add('hidden');
-        }
-    }
-
-    // Toggle play/pause on button click
-    playPauseBtn.addEventListener('click', function(e) {
-        e.stopPropagation(); // Prevent event from bubbling to video
-        togglePlayPause();
-    });
-
-    // Toggle play/pause on video click
-    video.addEventListener('click', function() {
-        togglePlayPause();
-    });
-
-    // Toggle fullscreen on video double-click
-    video.addEventListener('dblclick', function() {
-        if (fullscreenBtn) {
-            fullscreenBtn.click();
-        }
-    });
-
-    // Update progress bar
-    video.addEventListener('timeupdate', function() {
-        const percent = (video.currentTime / video.duration) * 100;
-        progressFilled.style.width = percent + '%';
-    });
-
-    // Click on progress bar to seek
-    progressBar.addEventListener('click', function(e) {
-        const rect = progressBar.getBoundingClientRect();
-        const pos = (e.clientX - rect.left) / rect.width;
-        video.currentTime = pos * video.duration;
-    });
-
-    // Toggle fullscreen
-    if (fullscreenBtn) {
-        fullscreenBtn.addEventListener('click', function() {
-            if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
-                // Enter fullscreen
-                if (videoContainer.requestFullscreen) {
-                    videoContainer.requestFullscreen();
-                } else if (videoContainer.webkitRequestFullscreen) {
-                    videoContainer.webkitRequestFullscreen();
-                } else if (videoContainer.mozRequestFullScreen) {
-                    videoContainer.mozRequestFullScreen();
-                } else if (videoContainer.msRequestFullscreen) {
-                    videoContainer.msRequestFullscreen();
-                }
-            } else {
-                // Exit fullscreen
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.webkitExitFullscreen) {
-                    document.webkitExitFullscreen();
-                } else if (document.mozCancelFullScreen) {
-                    document.mozCancelFullScreen();
-                } else if (document.msExitFullscreen) {
-                    document.msExitFullscreen();
-                }
-            }
-        });
-
-        // Update fullscreen icon when fullscreen state changes
-        function updateFullscreenIcon() {
-            if (document.fullscreenElement === videoContainer ||
-                document.webkitFullscreenElement === videoContainer ||
-                document.mozFullScreenElement === videoContainer ||
-                document.msFullscreenElement === videoContainer) {
-                fullscreenIcon.classList.add('hidden');
-                exitFullscreenIcon.classList.remove('hidden');
-            } else {
-                fullscreenIcon.classList.remove('hidden');
-                exitFullscreenIcon.classList.add('hidden');
-            }
-        }
-
-        document.addEventListener('fullscreenchange', updateFullscreenIcon);
-        document.addEventListener('webkitfullscreenchange', updateFullscreenIcon);
-        document.addEventListener('mozfullscreenchange', updateFullscreenIcon);
-        document.addEventListener('msfullscreenchange', updateFullscreenIcon);
-    }
-
-    // Show controls on hover
-    videoContainer.addEventListener('mouseenter', function() {
-        videoContainer.querySelector('.video-controls').style.opacity = '1';
-    });
-
-    videoContainer.addEventListener('mouseleave', function() {
-        videoContainer.querySelector('.video-controls').style.opacity = '0';
-    });
-
-    // Update play/pause button state when video starts playing
-    video.addEventListener('playing', function() {
-        playIcon.classList.add('hidden');
-        pauseIcon.classList.remove('hidden');
-    });
-
-    video.addEventListener('pause', function() {
-        playIcon.classList.remove('hidden');
-        pauseIcon.classList.add('hidden');
-    });
-
-    // Handle video loading states
-    video.addEventListener('loadedmetadata', function() {
-        // Once metadata is loaded, check if video will autoplay
-        if (video.autoplay && !video.paused) {
-            playIcon.classList.add('hidden');
-            pauseIcon.classList.remove('hidden');
-        }
-    });
-
-    video.addEventListener('canplay', function() {
-        // Video is ready to play, sync button state
-        if (!video.paused) {
-            playIcon.classList.add('hidden');
-            pauseIcon.classList.remove('hidden');
-        }
-    });
-
-    // Initialize button state immediately based on autoplay attribute
-    // Since we know the video has autoplay, show pause icon right away
-    if (video.hasAttribute('autoplay')) {
-        playIcon.classList.add('hidden');
-        pauseIcon.classList.remove('hidden');
-    }
-}
 
 // Load and display video overlays
 function loadVideoOverlays() {
@@ -592,12 +417,6 @@ function loadVideoOverlays() {
     VIDEO_OVERLAY_CONFIG.forEach(function(config) {
       const overlay = createVideoOverlay(config);
       container.appendChild(overlay);
-
-      // Initialize controls for this video
-      const videoContainer = overlay.querySelector('.video-container');
-      if (videoContainer) {
-          initVideoControls(videoContainer);
-      }
     });
 }
 
