@@ -1358,10 +1358,9 @@ nav.nav-static .navbar {
 
 .extensions-heading {
   font-family: var(--font-montserrat-bold);
-  font-size: var(--font-size-xxl);
+  font-size: var(--font-size-xl);
   color: var(--accent-color);
   margin-bottom: 1.5rem;
-  font-style: italic;
 }
 
 .extensions-description {
