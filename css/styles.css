@@ -659,10 +659,7 @@ nav.nav-static .navbar {
   left: 0px;
   top: 10%;
   opacity: 0.7;
-  transform: translateZ(0);
-  will-change: transform;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  isolation: isolate;
 }
 
 .banner-section .stars-right {
@@ -670,10 +667,7 @@ nav.nav-static .navbar {
   right: 0px;
   top: 5%;
   opacity: 0.7;
-  transform: translateZ(0);
-  will-change: transform;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  isolation: isolate;
 }
 
 .banner-section .content-container {
