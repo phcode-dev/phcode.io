@@ -365,7 +365,7 @@
     font-family: var(--font-montserrat-semi-bold);
     font-size: var(--font-size-s);
     cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background 0.3s ease;
     white-space: nowrap;
     width: 100%;
     min-height: 44px;
@@ -375,9 +375,28 @@
     background: #e89015;
 }
 
-.linux-copy-btn.copied {
+.linux-copy-btn .copy-icon {
+    display: inline-block;
+}
+
+.linux-copy-btn .check-icon {
+    display: none;
+}
+
+.linux-copy-btn.copied-style {
     background: #28a745;
-    color: white;
+}
+
+.linux-copy-btn.copied-style:hover {
+    background: #218838;
+}
+
+.linux-copy-btn.copied-style .copy-icon {
+    display: none;
+}
+
+.linux-copy-btn.copied-style .check-icon {
+    display: inline-block;
 }
 
 .linux-details {
@@ -605,50 +624,6 @@
 }
 
 /* ================================
-   COPY NOTIFICATION
+   COPY NOTIFICATION - REMOVED
+   Toast notification removed, button state now shows feedback
    ================================ */
-
-.copy-notification {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    background: var(--color-success-dark);
-    color: white;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    font-family: var(--font-montserrat-semi-bold);
-    font-size: var(--font-size-s);
-    z-index: 1000;
-    animation: slideInUp 0.3s ease, slideOutDown 0.3s ease 2.7s;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-@keyframes slideInUp {
-    from {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideOutDown {
-    to {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-}
-
-@media (max-width: 768px) {
-    .copy-notification {
-        bottom: 1rem;
-        right: 1rem;
-        left: 1rem;
-        justify-content: center;
-    }
-}

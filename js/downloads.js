@@ -272,12 +272,14 @@ function setupLinuxCopy() {
 
     if (!linuxCopyBtn || !linuxCodeSnippet) return;
 
+    const buttonText = linuxCopyBtn.querySelector('.button-text');
+
     const copyCommand = function() {
         const codeText = linuxCodeSnippet.textContent;
 
         if (navigator.clipboard) {
             navigator.clipboard.writeText(codeText).then(function() {
-                updateCopyButtonState(linuxCopyBtn, true);
+                updateCopyButtonState(linuxCopyBtn, buttonText);
             }).catch(function(err) {
                 console.error('Failed to copy code: ', err);
             });
@@ -291,7 +293,7 @@ function setupLinuxCopy() {
             tempTextarea.select();
             document.execCommand('copy');
             document.body.removeChild(tempTextarea);
-            updateCopyButtonState(linuxCopyBtn, true);
+            updateCopyButtonState(linuxCopyBtn, buttonText);
         }
     };
 
@@ -302,47 +304,17 @@ function setupLinuxCopy() {
     linuxCodeSnippet.style.cursor = 'pointer';
 }
 
-function updateCopyButtonState(button, copied) {
-    if (copied) {
-        button.classList.add('copied');
-        const originalHTML = button.innerHTML;
-        button.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
-            </svg>
-            Copied!
-        `;
-        setTimeout(function() {
-            button.classList.remove('copied');
-            button.innerHTML = originalHTML;
-        }, 3000);
-    }
-}
+function updateCopyButtonState(button, buttonText) {
+    button.classList.add('copied-style');
+    buttonText.textContent = 'Copied!';
 
-function showCopyNotification() {
-    // Remove any existing notification
-    const existing = document.querySelector('.copy-notification');
-    if (existing) {
-        existing.remove();
-    }
-
-    // Create and show new notification
-    const notification = document.createElement('div');
-    notification.className = 'copy-notification';
-    notification.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
-        </svg>
-        Copied to clipboard!
-    `;
-    document.body.appendChild(notification);
-
-    // Auto remove after animation
     setTimeout(function() {
-        notification.remove();
-    }, 3000);
+        button.classList.remove('copied-style');
+        buttonText.textContent = 'Copy';
+    }, 2000);
 }
+
+// Removed showCopyNotification function - no longer needed
 
 // ============================================================================
 // Initialization
