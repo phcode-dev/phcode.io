@@ -1584,6 +1584,14 @@ nav.nav-static .navbar {
   align-items: flex-start;
   gap: 1rem;
   margin-bottom: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.footer-logo-section:hover {
+  opacity: 0.8;
+  text-decoration: none;
 }
 
 .footer-logo {
