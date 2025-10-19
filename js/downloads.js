@@ -31,7 +31,7 @@ const API_URLS = {
 };
 
 // Chrome OS Play Store redirect URL
-const CHROME_OS_URL = 'https://phcode.dev/';
+const CHROME_OS_URL = 'https://play.google.com/store/apps/details?id=prod.phcode.twa';
 
 // Global state
 let downloadUrls = {};
