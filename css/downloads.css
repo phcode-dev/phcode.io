@@ -13,7 +13,7 @@
 
 .downloads-hero {
     background: linear-gradient(180deg, #1a1a1a 0%, #282727 100%);
-    padding: 120px 0 60px;
+    padding: 60px 0 0;
     position: relative;
     overflow: hidden;
 }
@@ -80,7 +80,7 @@
 
 @media (max-width: 768px) {
     .downloads-hero {
-        padding: 100px 0 50px;
+        padding: 50px 0 0px;
     }
 
     .downloads-hero-title {
