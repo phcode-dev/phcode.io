@@ -159,7 +159,14 @@ function highlightUserPlatform() {
     });
 
     // Highlight the current platform card
-    const platformCard = document.querySelector(`[data-platform="${currentPlatform}"]`);
+    // For Mac platforms, highlight the unified Mac card
+    let platformCard;
+    if (currentPlatform === Platforms.mac_m1 || currentPlatform === Platforms.mac_intel) {
+        platformCard = document.getElementById('macCard');
+    } else {
+        platformCard = document.querySelector(`[data-platform="${currentPlatform}"]`);
+    }
+
     if (platformCard) {
         platformCard.classList.add('active');
         // Scroll to the card on mobile
@@ -217,6 +224,41 @@ function handlePlatformDownload(platform) {
         console.warn('Download URL not available for platform:', platform);
         // Fallback to GitHub releases
         window.open('https://github.com/phcode-dev/phoenix-desktop/releases', '_blank');
+    }
+}
+
+// ============================================================================
+// Mac Dual Buttons Setup
+// ============================================================================
+
+function setupMacButtons() {
+    const macCard = document.getElementById('macCard');
+    if (!macCard) return;
+
+    const macButtons = macCard.querySelectorAll('.platform-download-btn');
+    macButtons.forEach(function(btn) {
+        const platform = btn.getAttribute('data-platform');
+        btn.onclick = function(e) {
+            e.preventDefault();
+            handlePlatformDownload(platform);
+        };
+    });
+}
+
+// ============================================================================
+// Chrome OS Button Setup
+// ============================================================================
+
+function setupChromeOSButton() {
+    const chromeOSCard = document.getElementById('chromeOSCard');
+    if (!chromeOSCard) return;
+
+    const chromeOSBtn = chromeOSCard.querySelector('.platform-download-btn');
+    if (chromeOSBtn) {
+        chromeOSBtn.onclick = function(e) {
+            e.preventDefault();
+            handlePlatformDownload(Platforms.chrome_os);
+        };
     }
 }
 
@@ -311,10 +353,11 @@ function showCopyNotification() {
 function init() {
     console.log('Initializing downloads page...');
 
-    // Add loading state to all platform cards
-    document.querySelectorAll('.platform-card').forEach(function(card) {
-        card.classList.add('loading');
-    });
+    // Add loading state only to cards that need API data (Windows and Linux)
+    const windowsCard = document.getElementById('windowsCard');
+    const linuxCard = document.getElementById('linuxCard');
+    if (windowsCard) windowsCard.classList.add('loading');
+    if (linuxCard) linuxCard.classList.add('loading');
 
     // Detect user's platform
     detectPlatform();
@@ -322,6 +365,18 @@ function init() {
 
     // Setup Linux copy functionality
     setupLinuxCopy();
+
+    // Setup Mac dual buttons
+    setupMacButtons();
+
+    // Setup Web Editor button (no loading needed)
+    const webEditorBtn = document.querySelector('.web-editor-card .platform-download-btn');
+    if (webEditorBtn) {
+        // Web Editor link is already set in HTML, no additional setup needed
+    }
+
+    // Setup Chrome OS button
+    setupChromeOSButton();
 
     // Fetch data and update UI
     Promise.all([
