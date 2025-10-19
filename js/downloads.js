@@ -277,7 +277,6 @@ function setupLinuxCopy() {
 
         if (navigator.clipboard) {
             navigator.clipboard.writeText(codeText).then(function() {
-                showCopyNotification();
                 updateCopyButtonState(linuxCopyBtn, true);
             }).catch(function(err) {
                 console.error('Failed to copy code: ', err);
@@ -292,7 +291,6 @@ function setupLinuxCopy() {
             tempTextarea.select();
             document.execCommand('copy');
             document.body.removeChild(tempTextarea);
-            showCopyNotification();
             updateCopyButtonState(linuxCopyBtn, true);
         }
     };
@@ -317,7 +315,7 @@ function updateCopyButtonState(button, copied) {
         setTimeout(function() {
             button.classList.remove('copied');
             button.innerHTML = originalHTML;
-        }, 2000);
+        }, 3000);
     }
 }
 
@@ -353,11 +351,9 @@ function showCopyNotification() {
 function init() {
     console.log('Initializing downloads page...');
 
-    // Add loading state only to cards that need API data (Windows and Linux)
+    // Add loading state only to cards that need API data (Windows only)
     const windowsCard = document.getElementById('windowsCard');
-    const linuxCard = document.getElementById('linuxCard');
     if (windowsCard) windowsCard.classList.add('loading');
-    if (linuxCard) linuxCard.classList.add('loading');
 
     // Detect user's platform
     detectPlatform();

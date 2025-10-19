@@ -12,7 +12,7 @@
    ================================ */
 
 .downloads-hero {
-    background: linear-gradient(180deg, #1a1a1a 0%, #282727 100%);
+    background: #282727;
     padding: 60px 0 0;
     position: relative;
     overflow: hidden;
@@ -291,6 +291,27 @@
    LINUX CARD SPECIAL STYLES
    ================================ */
 
+#linuxCard {
+    /* Ensure Linux card has same default styling as other cards */
+    opacity: 1;
+    pointer-events: auto;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+}
+
+#linuxCard::before {
+    opacity: 0;
+}
+
+#linuxCard:hover {
+    border-color: rgba(250, 170, 71, 0.5);
+    background: linear-gradient(135deg, #303030 0%, #252525 100%);
+}
+
+#linuxCard:hover::before {
+    opacity: 1;
+}
+
 .linux-install-section {
     display: flex;
     flex-direction: column;
@@ -313,6 +334,7 @@
     border-radius: 8px;
     padding: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    pointer-events: auto;
 }
 
 .linux-code-snippet {
@@ -327,6 +349,7 @@
     user-select: all;
     padding: 0;
     margin: 0;
+    cursor: pointer;
 }
 
 .linux-copy-btn {
@@ -342,9 +365,10 @@
     font-family: var(--font-montserrat-semi-bold);
     font-size: var(--font-size-s);
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
     white-space: nowrap;
     width: 100%;
+    min-height: 44px;
 }
 
 .linux-copy-btn:hover {
@@ -352,7 +376,8 @@
 }
 
 .linux-copy-btn.copied {
-    background: var(--color-success-dark);
+    background: #28a745;
+    color: white;
 }
 
 .linux-details {
