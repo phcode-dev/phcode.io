@@ -202,11 +202,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #3a3a3a 0%, #2f2f2f 100%);
     border-radius: 12px;
     color: var(--accent-color);
     flex-shrink: 0;
-    border: 1px solid rgba(250, 170, 71, 0.3);
 }
 
 .platform-info {
