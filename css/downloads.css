@@ -515,6 +515,7 @@
 .more-downloads-link:hover {
     filter: brightness(1.1);
     text-decoration: none;
+    color: var(--text-color-light);
 }
 
 @media (max-width: 768px) {
