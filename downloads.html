@@ -30,6 +30,9 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/downloads.css">
 
+    <!-- Consent Banner CSS -->
+    <link rel="stylesheet" href="consent-banner.css">
+
     <link rel="icon" type="image/png" href="assets/images/fav.png">
 </head>
 <body class="downloads-body">
@@ -374,9 +377,32 @@
         </div>
     </footer>
 
+    <!-- Cookie Consent Banner -->
+    <div id="consent-banner" class="consent-banner">
+        <div class="consent-banner-container">
+            <div class="consent-banner-text">
+                <h3>We value your privacy</h3>
+                <p>
+                    We use cookies to improve your experience and analyze how our site is used.
+                    By clicking "Accept All", you consent to our use of cookies.
+                    <a href="privacy.html" target="_blank">Privacy Policy</a>
+                </p>
+            </div>
+            <div class="consent-banner-buttons">
+                <button id="consent-accept" class="consent-btn consent-btn-accept">Accept All</button>
+                <button id="consent-reject" class="consent-btn consent-btn-reject">Reject All</button>
+                <button id="consent-close" class="consent-btn consent-btn-close">Close</button>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript -->
     <script type="module" src="js/navbar.js"></script>
     <script type="module" src="js/downloads.js"></script>
+
+    <!-- Google Consent Mode v2 + Tracking Scripts -->
+    <!-- Load consent manager first (initializes GCM with denied defaults) -->
+    <script type="module" src="consent-manager.js"></script>
 
     <!-- Microsoft Clarity -->
     <script type="text/javascript">

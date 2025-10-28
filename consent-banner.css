@@ -1,0 +1,186 @@
+/* Google Consent Mode - Cookie Banner Styles */
+/* Designed with Phoenix Code's Award-Winning Color Theme */
+
+.consent-banner {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    max-width: 380px;
+    background: #282727;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    z-index: 9999;
+    font-family: 'Montserrat Regular', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    animation: slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    display: none;
+    overflow: hidden;
+}
+
+.consent-banner.show {
+    display: block;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(120%) scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Phoenix Code Signature Gradient Border */
+.consent-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #FAAA47 0%, #FA1801 50%, #FAAA47 100%);
+}
+
+.consent-banner-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.consent-banner-text {
+    color: #ffffffef;
+}
+
+.consent-banner-text h3 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Montserrat SemiBold', sans-serif;
+    color: #ffffffef;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.consent-banner-text h3::before {
+    content: '🍪';
+    font-size: 18px;
+}
+
+.consent-banner-text p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.consent-banner-text a {
+    color: #FE9615;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    border-bottom: 1px solid rgba(254, 150, 21, 0.3);
+}
+
+.consent-banner-text a:hover {
+    color: #FAAA47;
+    border-bottom-color: #FAAA47;
+}
+
+.consent-banner-buttons {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+
+.consent-btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: 'Montserrat SemiBold', sans-serif;
+    letter-spacing: 0.3px;
+}
+
+.consent-btn:hover {
+    transform: translateY(-1px);
+}
+
+.consent-btn:active {
+    transform: translateY(0);
+}
+
+.consent-btn-accept {
+    background: linear-gradient(90deg, #FAAA47 0%, #FA1801 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(250, 170, 71, 0.3);
+}
+
+.consent-btn-accept:hover {
+    background: linear-gradient(90deg, #f5a33f 0%, #e41802 100%);
+    box-shadow: 0 4px 12px rgba(250, 170, 71, 0.4);
+}
+
+.consent-btn-reject {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.consent-btn-reject:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.consent-btn-close {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 6px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.consent-btn-close:hover {
+    color: rgba(255, 255, 255, 0.8);
+    transform: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .consent-banner {
+        bottom: 16px;
+        right: 16px;
+        left: 16px;
+        max-width: none;
+    }
+
+    .consent-banner-container {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .consent-banner {
+        bottom: 12px;
+        right: 12px;
+        left: 12px;
+    }
+
+    .consent-banner-container {
+        padding: 16px;
+        gap: 14px;
+    }
+
+    .consent-banner-text h3 {
+        font-size: 15px;
+    }
+
+    .consent-banner-text p {
+        font-size: 12px;
+    }
+}

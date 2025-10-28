@@ -114,17 +114,15 @@ function detectPlatform() {
 
 // Update download button UI
 function updateDownloadButton(platform) {
-    console.log('updateDownloadButton called with platform:', platform);
+    console.log('Download platform:', platform);
     const downloadBtn = document.getElementById('downloadBtn');
     const downloadLink = document.getElementById('downloadLink');
     const linuxInstruction = document.getElementById('linuxInstruction');
     const linuxMore = document.getElementById('linuxMore');
     const linuxCopyBtn = document.getElementById('linuxCopyBtn');
     const linuxCodeContainer = document.getElementById('linuxCodeContainer');
-    const codeSnippet = document.getElementById('codeSnippet');
     const downloadButtonContainer = document.querySelector('.download-button');
 
-    console.log('Elements found - downloadBtn:', !!downloadBtn);
     if (!downloadBtn) {
         console.warn('downloadBtn not found!');
         return;
@@ -180,10 +178,8 @@ function updateDownloadButton(platform) {
 
         // Update the label
         const downloadLabel = document.getElementById('downloadLabel');
-        console.log('Updating label - element found:', !!downloadLabel, 'label:', label);
         if (downloadLabel) {
             downloadLabel.textContent = label;
-            console.log('Label updated to:', label);
         } else {
             console.warn('Could not find downloadLabel element to update!');
         }
@@ -317,10 +313,8 @@ function setupDropdown() {
             e.preventDefault();
             e.stopPropagation();
             const platform = this.getAttribute('data-platform');
-            console.log('Dropdown item clicked, platform:', platform);
             if (platform) {
                 currentPlatform = platform;
-                console.log('Calling updateDownloadButton with platform:', platform);
                 updateDownloadButton(platform);
                 dropdownMenu.classList.remove('show');
             }

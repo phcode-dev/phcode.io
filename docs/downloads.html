@@ -27,10 +27,14 @@
 
     <!-- Custom CSS -->
 
+    <!-- Consent Banner CSS -->
+
     <link rel="icon" type="image/png" href="./assets/fav-C-P3qZFj.png">
-  <script type="module" crossorigin src="./assets/downloads-yqh79R8g.js"></script>
+  <script type="module" crossorigin src="./assets/downloads-DCGau-Cb.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/navbar-81GzsPed.js">
+  <link rel="modulepreload" crossorigin href="./assets/consent-manager-9auW14iP.js">
   <link rel="stylesheet" crossorigin href="./assets/navbar-BO8dyeDW.css">
+  <link rel="stylesheet" crossorigin href="./assets/consent-manager-CxT6SVie.css">
   <link rel="stylesheet" crossorigin href="./assets/downloads-hbesuTck.css">
 </head>
 <body class="downloads-body">
@@ -375,7 +379,29 @@
         </div>
     </footer>
 
+    <!-- Cookie Consent Banner -->
+    <div id="consent-banner" class="consent-banner">
+        <div class="consent-banner-container">
+            <div class="consent-banner-text">
+                <h3>We value your privacy</h3>
+                <p>
+                    We use cookies to improve your experience and analyze how our site is used.
+                    By clicking "Accept All", you consent to our use of cookies.
+                    <a href="privacy.html" target="_blank">Privacy Policy</a>
+                </p>
+            </div>
+            <div class="consent-banner-buttons">
+                <button id="consent-accept" class="consent-btn consent-btn-accept">Accept All</button>
+                <button id="consent-reject" class="consent-btn consent-btn-reject">Reject All</button>
+                <button id="consent-close" class="consent-btn consent-btn-close">Close</button>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript -->
+
+    <!-- Google Consent Mode v2 + Tracking Scripts -->
+    <!-- Load consent manager first (initializes GCM with denied defaults) -->
 
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
